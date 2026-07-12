@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center align-items-center">
+  <div class="card" style="width: 18rem;">
+    <%= form_with model: [ @article, @article.comments.build ] do |form| %>
+      <div class="card-body">
+        <h5 class="card-title">Add a comment</h5>
+        <%= form.label :title, class:"form-label" %>
+        <%= form.text_field :title, class:"form-control", placeholder:"Enter title of comment" %>
+        <br>
+        <br>
+        <%= form.label :description, class:"form-label" %>
+        <%= form.text_area :description, class:"form-control", placeholder:"Enter description of comment" %>
+        <br>
+        <br>
+        <div class="text-end">
+          <%= form.submit class:"btn btn-success" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

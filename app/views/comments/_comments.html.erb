@@ -1,0 +1,25 @@
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <% @article.comments.each do |comment| %>
+    <tbody>
+      <tr>
+        <td><%= comment.title %></td>
+        <td><%= comment.description %></td>
+        <td>
+          <%= link_to 'Show Comment', article_comment_path(@article, comment), class: 'btn btn-info' %>
+          <%= link_to 'Edit Comment', edit_article_comment_path(@article, comment), class: 'btn btn-warning' %>
+          <%= link_to "Delete Comment", article_comment_path(@article, comment), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
